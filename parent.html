@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="heading">This is something at parent</h1>
+
+    <iframe
+      id="receiver"
+      src="child.html"
+      style="width: 600px; height:300px"
+      onload="test()"
+    ></iframe>
+    <script>
+      function test() {
+        document.getElementById('receiver').contentWindow.postMessage(
+          {
+            year: '1997',
+            month: '07',
+            day: '01',
+            person: ['Deng', 'Jiang', 'Li']
+          },
+          '*'
+        );
+      }
+    </script>
+  </body>
+</html>
